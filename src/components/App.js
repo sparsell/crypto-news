@@ -1,26 +1,24 @@
 import React from 'react';
-import Search from './Search'
-import DisplayCoins from './DisplayCoins'
+import Search from './Search';
+import DisplayCoins from './DisplayCoins';
 import { getData, options } from '../apis/coinranking';
 
 
 class App extends React.Component {
 
     onTermSubmit = () => {
-        const response = getData(options)
-        console.log(response)
+        console.log(getData(options))
     };
 
     onCoinSelect = (e) => {
         
     }
 
-
     render() {
         return (
             <div className="ui container">
                 <Search onTermSubmit={this.onTermSubmit} />
-                <DisplayCoins onCoinSelect={this.onCoinSelect}/>
+                <DisplayCoins ccyData={this.ccyData} onCoinSelect={this.onCoinSelect}/>
 
             </div>
         )
